@@ -39,4 +39,4 @@ spec:
           - name: data-volume
             hostPath:
               path: /data
-              type: DirectoryOrCreate 
+              type: DirectoryOrCreate

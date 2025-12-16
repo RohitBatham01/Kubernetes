@@ -17,4 +17,13 @@ spec:
        - name: nginx
          image: nginx:latest
          ports:
-         - containerPort: 80 
+         - containerPort: 80
+         volumeMounts:
+         - mountPath: /var/www/html
+           name: local-pvc
+      volumes:
+      - name: local-pvc
+        persistentVolumeClaim:
+          claimName: local-pvc
+
+# port forwarding CLUSTER IP :-- kubectl port-forward service/nginx-svc -n nginx 80:80 --address=0.0.0.0
